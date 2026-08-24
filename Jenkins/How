@@ -1,0 +1,33 @@
+1. Install Required Java version
+
+sudo apt update
+sudo apt install fontconfig openjdk-21-jre
+java -version
+
+If the installation was successful, you should see an output similar to the following:
+
+openjdk 21.0.8 2025-07-15
+OpenJDK Runtime Environment (build 21.0.8+9-Debian-1)
+OpenJDK 64-Bit Server VM (build 21.0.8+9-Debian-1, mixed mode, sharing)
+
+2. Installing Jenkins
+
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update
+sudo apt install jenkins
+
+
+Start Jenkins:
+
+You can enable the Jenkins service to start at boot with the command:
+sudo systemctl enable jenkins
+
+You can start the Jenkins service with the command:
+sudo systemctl start jenkins
+
+You can check the status of the Jenkins service using the command:
+sudo systemctl status jenkins
